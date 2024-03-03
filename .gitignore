@@ -132,6 +132,9 @@ ExportedObj/
 *.mdb
 *.opendb
 *.VC.db
+*.code-workspace
+*.wktree
+
 
 # Meta files for ignored extensions
 *.pidb.meta
@@ -157,5 +160,4 @@ crashlytics-build.properties
 .DS_Store
 Thumbs.db
 Desktop.ini
-Dream_Of_Kingdom.code-workspace
-plastic.wktree
+
