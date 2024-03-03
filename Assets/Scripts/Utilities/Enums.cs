@@ -16,3 +16,9 @@ public enum RoomState
     Visited,
     Attainable,
 }
+public enum CardType
+{
+    Attack,
+    Defense,
+    Abilities,
+}
