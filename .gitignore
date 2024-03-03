@@ -89,6 +89,9 @@ MemoryCaptures/
 memorycaptures/
 Logs/
 logs/
+.plastic/
+.vscode/
+
 
 # Specific files
 /ignore.conf
@@ -153,3 +156,4 @@ crashlytics-build.properties
 .DS_Store
 Thumbs.db
 Desktop.ini
+Dream_Of_Kingdom.code-workspace
