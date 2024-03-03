@@ -1,3 +1,6 @@
+hidden_changes.conf
+.plastic\plastic.wktree
+.plastic
 # This .gitignore file should be placed at the root of your Unity project directory
 #
 # Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
@@ -161,3 +164,4 @@ crashlytics-build.properties
 Thumbs.db
 Desktop.ini
 
+.plastic/plastic.wktree
