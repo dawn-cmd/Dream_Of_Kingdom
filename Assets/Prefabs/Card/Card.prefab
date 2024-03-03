@@ -110,7 +110,7 @@ MonoBehaviour:
   descriptionText: {fileID: 5036834205597602804}
   typeText: {fileID: 7369859580473709672}
   nameText: {fileID: 8462797389229148596}
-  cardData: {fileID: 0}
+  cardData: {fileID: 11400000, guid: 34ae67bf74f078a4189690b569ffc832, type: 2}
 --- !u!1 &1570583628193607995
 GameObject:
   m_ObjectHideFlags: 0

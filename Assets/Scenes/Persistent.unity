@@ -555,7 +555,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 192
   m_MaxRayIntersections: 0
---- !u!1001 &1877032499
+--- !u!1001 &1493714480
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -607,15 +607,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8950843554010180792, guid: 5ee0656c81b2bbe429f9a0d3414564b7, type: 3}
-      propertyPath: cardData
-      value: 
-      objectReference: {fileID: 11400000, guid: 34ae67bf74f078a4189690b569ffc832, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4311469366041482359, guid: 5ee0656c81b2bbe429f9a0d3414564b7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 5215402478686336751, guid: 5ee0656c81b2bbe429f9a0d3414564b7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
     - targetCorrespondingSourceObject: {fileID: 5755382147024228769, guid: 5ee0656c81b2bbe429f9a0d3414564b7, type: 3}
@@ -634,4 +633,4 @@ SceneRoots:
   - {fileID: 126395253}
   - {fileID: 582521033}
   - {fileID: 54658318}
-  - {fileID: 1877032499}
+  - {fileID: 1493714480}
