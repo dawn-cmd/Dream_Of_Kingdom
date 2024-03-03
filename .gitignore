@@ -114,8 +114,8 @@ logs/
 .gradle/
 ExportedObj/
 .consulo/
-.plastic/
-.vscode/
+**/.plastic/
+**/.vscode/
 
 # Project files
 *.csproj
