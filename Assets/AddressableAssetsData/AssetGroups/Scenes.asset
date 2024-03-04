@@ -46,7 +46,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 85797bf4283ddcb4c895fb4f45f7d43f
-    m_Address: Assets/Scenes/Boss.unity
+    m_Address: Boss
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
