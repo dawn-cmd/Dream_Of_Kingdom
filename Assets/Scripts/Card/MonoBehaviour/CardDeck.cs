@@ -4,11 +4,14 @@ using UnityEngine;
 public class CardDeck : MonoBehaviour
 {
     public CardManager cardManager;
+    public CardLayoutManager layoutManager;
     private List<CardDataSO> drawDeck = new();
     private List<CardDataSO> discardDeck = new();
     private List<Card> handCardObjectList = new();
-    private void Start() {
+    private void Start()
+    {
         InitializeDeck(); // For Testing
+        DrawCard(4); // For Testing
     }
     public void InitializeDeck()
     {
@@ -41,6 +44,16 @@ public class CardDeck : MonoBehaviour
             var card = cardManager.GetCardObject().GetComponent<Card>();
             card.Init(currentCardData);
             handCardObjectList.Add(card);
+            SetCardLayout();
+        }
+    }
+    private void SetCardLayout()
+    {
+        for (int i = 0; i < handCardObjectList.Count; i++)
+        {
+            Card currentCard = handCardObjectList[i];
+            CardTransform cardTransform = layoutManager.GetCardTransform(i, handCardObjectList.Count);
+            currentCard.transform.SetPositionAndRotation(cardTransform.pos, cardTransform.rotation);
         }
     }
 }

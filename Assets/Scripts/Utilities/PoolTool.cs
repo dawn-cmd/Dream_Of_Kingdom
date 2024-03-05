@@ -4,7 +4,7 @@ public class PoolTool : MonoBehaviour
 {
     public GameObject objPrefab;
     private ObjectPool<GameObject> pool;
-    private void Start()
+    private void Awake()
     {
         pool = new ObjectPool<GameObject>(
             createFunc: () => Instantiate(objPrefab, transform),

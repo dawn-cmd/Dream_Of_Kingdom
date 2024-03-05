@@ -663,6 +663,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a2ec77ddb055874e8376442cb4dc2e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isHorizontal: 1
+  maxWidth: 7
+  cardSpacing: 2
+  centerPoint: {x: 0, y: -4.5, z: 0}
+  cardPositions: []
 --- !u!4 &1592128096
 Transform:
   m_ObjectHideFlags: 0
@@ -708,6 +713,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardManager: {fileID: 288618263}
+  layoutManager: {fileID: 1592128095}
 --- !u!4 &1719763955
 Transform:
   m_ObjectHideFlags: 0
