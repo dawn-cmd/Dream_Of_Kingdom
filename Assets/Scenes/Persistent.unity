@@ -714,6 +714,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardManager: {fileID: 288618263}
   layoutManager: {fileID: 1592128095}
+  deckPosition: {x: 0, y: 0, z: 0}
 --- !u!4 &1719763955
 Transform:
   m_ObjectHideFlags: 0
@@ -784,7 +785,7 @@ SceneRoots:
   - {fileID: 582521033}
   - {fileID: 54658318}
   - {fileID: 288618264}
+  - {fileID: 1592128096}
   - {fileID: 1383588833}
   - {fileID: 1851302859}
   - {fileID: 1719763955}
-  - {fileID: 1592128096}

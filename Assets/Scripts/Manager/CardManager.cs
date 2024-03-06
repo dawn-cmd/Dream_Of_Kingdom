@@ -23,6 +23,16 @@ public class CardManager : MonoBehaviour
             currentLibrary.cardLibraryList.Add(item);
         }
     }
+    private void OnDisable() {
+        currentLibrary.cardLibraryList.Clear();
+    }
+
+    public GameObject GetCardObject()
+    {
+        var cardObj = poolTool.GetObjectFromPool();
+        cardObj.transform.localScale = Vector3.zero;
+        return cardObj;
+    }
 
     private void InitializeCardDataList()
     {
@@ -39,15 +49,6 @@ public class CardManager : MonoBehaviour
         {
             Debug.LogError("Failed to load card data");
         }
-    }
-
-    /// <summary>
-    /// Retrieves a card object from the object pool.
-    /// </summary>
-    /// <returns>The card object.</returns>
-    public GameObject GetCardObject()
-    {
-        return poolTool.GetObjectFromPool();
     }
 
     /// <summary>

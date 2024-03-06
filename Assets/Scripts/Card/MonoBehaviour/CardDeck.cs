@@ -1,10 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
+using DG.Tweening;
 
 public class CardDeck : MonoBehaviour
 {
     public CardManager cardManager;
     public CardLayoutManager layoutManager;
+    public Vector3 deckPosition;
     private List<CardDataSO> drawDeck = new();
     private List<CardDataSO> discardDeck = new();
     private List<Card> handCardObjectList = new();
@@ -43,17 +46,28 @@ public class CardDeck : MonoBehaviour
             drawDeck.RemoveAt(0);
             var card = cardManager.GetCardObject().GetComponent<Card>();
             card.Init(currentCardData);
+            card.transform.position = deckPosition;
             handCardObjectList.Add(card);
-            SetCardLayout();
+            var delay = i * 0.2f;
+            SetCardLayout(delay);
         }
     }
-    private void SetCardLayout()
+    private void SetCardLayout(float delay)
     {
         for (int i = 0; i < handCardObjectList.Count; i++)
         {
             Card currentCard = handCardObjectList[i];
-            CardTransform cardTransform = layoutManager.GetCardTransform(i, handCardObjectList.Count);
-            currentCard.transform.SetPositionAndRotation(cardTransform.pos, cardTransform.rotation);
+            CardTransform cardTransform =
+                layoutManager.GetCardTransform(i, handCardObjectList.Count);
+            
+            currentCard.transform.DOScale(Vector3.one, 0.5f)
+                .SetDelay(delay)
+                .onComplete = () =>
+                {
+                    currentCard.transform.DOMove(cardTransform.pos, 0.5f);
+                    currentCard.transform.DORotateQuaternion(cardTransform.rotation, 0.5f);
+                };
+            currentCard.GetComponent<SortingGroup>().sortingOrder = i;
         }
     }
 }
