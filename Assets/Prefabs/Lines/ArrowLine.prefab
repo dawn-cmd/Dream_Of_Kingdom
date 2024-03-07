@@ -152,3 +152,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc3ac645947c4d74c8f768ed8ca6ccf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pointsCount: 48
+  arcModifier: 5
