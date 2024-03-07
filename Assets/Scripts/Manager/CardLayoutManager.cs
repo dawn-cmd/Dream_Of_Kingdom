@@ -7,7 +7,7 @@ public class CardLayoutManager : MonoBehaviour
     public float maxWidth = 7f;
     public float cardSpacing = 2f;
     [Header("Curve Layout")]
-    public float angleBetweenCards = 7f;
+    public float maxAngle = 40f;
     public float radius = 17f;
     public Vector3 centerPoint;
     [SerializeField] private List<Vector3> cardPositions = new();
@@ -36,11 +36,18 @@ public class CardLayoutManager : MonoBehaviour
     }
     private void Calculate_Curve_Layout(int numberOfCards)
     {
+        var angleBetweenCards = Mathf.Min(maxAngle / (numberOfCards - 1), 7f);
         float cardAngle = (numberOfCards - 1) * angleBetweenCards / 2;
         for (int i = 0; i < numberOfCards; i++)
         {
             var pos = FanCardPosition(cardAngle - i * angleBetweenCards);
-            var rotation = Quaternion.Euler(0, 0, cardAngle - i * angleBetweenCards);
+            var rotation = Quaternion.Euler(
+                0, 
+                0, 
+                cardAngle - i * angleBetweenCards
+            );
+            cardPositions.Add(pos);
+            cardRotations.Add(rotation);
         }
     }
     private Vector3 FanCardPosition(float angle)

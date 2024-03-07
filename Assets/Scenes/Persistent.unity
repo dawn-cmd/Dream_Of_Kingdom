@@ -663,9 +663,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a2ec77ddb055874e8376442cb4dc2e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isHorizontal: 1
+  isHorizontal: 0
   maxWidth: 7
   cardSpacing: 2
+  angleBetweenCards: 7
+  radius: 17
   centerPoint: {x: 0, y: -4.5, z: 0}
   cardPositions: []
 --- !u!4 &1592128096
