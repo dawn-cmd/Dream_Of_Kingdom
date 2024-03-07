@@ -1,12 +1,19 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.Rendering;
 
-public class Card : MonoBehaviour
+public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [Header("Component")]
     public SpriteRenderer cardSprite;
     public TextMeshPro costText, descriptionText, typeText, nameText;
     public CardDataSO cardData;
+    [Header("Original Data")]
+    public Vector3 originalPosition;
+    public Quaternion originalRotation;
+    public int originalLayerOrder;
+    public bool isAnimating;
     private void Start()
     {
         Init(cardData);
@@ -25,5 +32,30 @@ public class Card : MonoBehaviour
             CardType.Abilities => "能力",
             _ => "Unknown",
         };
+    }
+
+    public void UpdatePositionRotation(Vector3 position, Quaternion rotation)
+    {
+        originalPosition = position;
+        originalRotation = rotation;
+        originalLayerOrder = GetComponent<SortingGroup>().sortingOrder;
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (isAnimating) return;
+        transform.SetPositionAndRotation(originalPosition + Vector3.up * 0.5f, Quaternion.identity);
+        GetComponent<SortingGroup>().sortingOrder = 20;
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        if (isAnimating) return;
+        ResetCardTransform();
+    }
+    public void ResetCardTransform()
+    {
+        transform.SetPositionAndRotation(originalPosition, originalRotation);
+        GetComponent<SortingGroup>().sortingOrder = originalLayerOrder;
     }
 }
