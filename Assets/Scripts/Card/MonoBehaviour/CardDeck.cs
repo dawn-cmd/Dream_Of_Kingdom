@@ -28,6 +28,7 @@ public class CardDeck : MonoBehaviour
             }
         }
         //TODO: Shuffle the draw deck
+        ShuffleDeck();
     }
     [ContextMenu("TestDrawCard")]
     public void TestDrawCard()
@@ -41,6 +42,11 @@ public class CardDeck : MonoBehaviour
             if (drawDeck.Count == 0)
             {
                 //TODO: Shuffle the discard deck and move it to the draw deck
+                foreach (var item in discardDeck)
+                {
+                    drawDeck.Add(item);
+                }
+                ShuffleDeck();
             }
             CardDataSO currentCardData = drawDeck[0];
             drawDeck.RemoveAt(0);
@@ -59,7 +65,7 @@ public class CardDeck : MonoBehaviour
             Card currentCard = handCardObjectList[i];
             CardTransform cardTransform =
                 layoutManager.GetCardTransform(i, handCardObjectList.Count);
-            
+
             currentCard.isAnimating = true;
             currentCard.transform.DOScale(Vector3.one, 0.5f)
                 .SetDelay(delay)
@@ -71,5 +77,24 @@ public class CardDeck : MonoBehaviour
             currentCard.GetComponent<SortingGroup>().sortingOrder = i;
             currentCard.UpdatePositionRotation(cardTransform.pos, cardTransform.rotation);
         }
+    }
+    private void ShuffleDeck()
+    {
+        discardDeck.Clear();
+
+        for (int i = 0; i < drawDeck.Count; i++)
+        {
+            CardDataSO temp = drawDeck[i];
+            int randomIndex = Random.Range(i, drawDeck.Count);
+            drawDeck[i] = drawDeck[randomIndex];
+            drawDeck[randomIndex] = temp;
+        }
+    }
+    private void DiscardCard(Card card)
+    {
+        handCardObjectList.Remove(card);
+        discardDeck.Add(card.cardData);
+        cardManager.DestroyCardObject(card.gameObject);
+        SetCardLayout(0);
     }
 }
