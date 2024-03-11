@@ -94,7 +94,7 @@ public class CardDeck : MonoBehaviour
     {
         handCardObjectList.Remove(card);
         discardDeck.Add(card.cardData);
-        cardManager.DestroyCardObject(card.gameObject);
+        cardManager.DiscardCard(card.gameObject);
         SetCardLayout(0);
     }
 }
