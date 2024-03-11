@@ -39,6 +39,8 @@ public class CardDeck : MonoBehaviour
     {
         for (int i = 0; i < count; i++)
         {
+            CardDataSO currentCardData = drawDeck[0];
+            drawDeck.RemoveAt(0);
             if (drawDeck.Count == 0)
             {
                 //TODO: Shuffle the discard deck and move it to the draw deck
@@ -48,8 +50,6 @@ public class CardDeck : MonoBehaviour
                 }
                 ShuffleDeck();
             }
-            CardDataSO currentCardData = drawDeck[0];
-            drawDeck.RemoveAt(0);
             var card = cardManager.GetCardObject().GetComponent<Card>();
             card.Init(currentCardData);
             card.transform.position = deckPosition;
