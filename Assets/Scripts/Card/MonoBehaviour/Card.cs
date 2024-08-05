@@ -58,4 +58,12 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         transform.SetPositionAndRotation(originalPosition, originalRotation);
         GetComponent<SortingGroup>().sortingOrder = originalLayerOrder;
     }
+    public void ExecuteCardEffects(CharacterBase from, CharacterBase target)
+    {
+        //TODO: recollect cards and cost energy
+        foreach (var effect in cardData.effects)
+        {
+            effect.Execute(from, target);
+        }
+    }
 }

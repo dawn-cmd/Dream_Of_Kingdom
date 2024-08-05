@@ -8,6 +8,7 @@ public class CardDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     private Card currentCard;
     private bool canMove;
     private bool canExecute;
+    private CharacterBase targetCharacter;
     private void Awake()
     {
         currentCard = GetComponent<Card>();
@@ -18,8 +19,8 @@ public class CardDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         {
             case CardType.Attack:
                 currentArrow = Instantiate(
-                    arrowPrefab, 
-                    transform.position, 
+                    arrowPrefab,
+                    transform.position,
                     Quaternion.identity
                 );
                 break;
@@ -32,7 +33,19 @@ public class CardDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 
     public void OnDrag(PointerEventData eventData)
     {
-        if (!canMove) return;
+        if (!canMove)
+        {
+            if (eventData.pointerEnter == null) return;
+            if (eventData.pointerEnter.tag == "Enemy")
+            {
+                canExecute = true;
+                targetCharacter = eventData.pointerEnter.GetComponent<CharacterBase>();
+                return;
+            }
+            canExecute = false;
+            targetCharacter = null;
+            return;
+        }
         currentCard.isAnimating = true;
         Vector3 screenPos = new(
             Input.mousePosition.x,
