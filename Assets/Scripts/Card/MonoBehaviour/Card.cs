@@ -15,6 +15,8 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public int originalLayerOrder;
     public bool isAnimating;
     public Player player;
+    [Header("广播事件")]
+    public ObjectEventSO discardCardEvent;
     private void Start()
     {
         Init(cardData);
@@ -63,6 +65,7 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public void ExecuteCardEffects(CharacterBase from, CharacterBase target)
     {
         //TODO: recollect cards and cost energy
+        discardCardEvent.RaiseEvent(this, this);
         foreach (var effect in cardData.effects)
         {
             effect.Execute(from, target);
