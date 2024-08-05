@@ -14,6 +14,7 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public Quaternion originalRotation;
     public int originalLayerOrder;
     public bool isAnimating;
+    public Player player;
     private void Start()
     {
         Init(cardData);
@@ -32,6 +33,7 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             CardType.Abilities => "能力",
             _ => "Unknown",
         };
+        player = GameObject.FindWithTag("Player").GetComponent<Player>();
     }
 
     public void UpdatePositionRotation(Vector3 position, Quaternion rotation)

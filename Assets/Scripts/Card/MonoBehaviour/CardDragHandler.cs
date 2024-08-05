@@ -36,7 +36,7 @@ public class CardDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         if (!canMove)
         {
             if (eventData.pointerEnter == null) return;
-            if (eventData.pointerEnter.tag == "Enemy")
+            if (eventData.pointerEnter.CompareTag("Enemy"))
             {
                 canExecute = true;
                 targetCharacter = eventData.pointerEnter.GetComponent<CharacterBase>();
@@ -59,13 +59,14 @@ public class CardDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        Debug.Log("Can Execute: " + canExecute);
         if (currentArrow != null)
         {
             Destroy(currentArrow);
         }
         if (canExecute)
         {
-            //TODO: Card take effect
+            currentCard.ExecuteCardEffects(currentCard.player, targetCharacter);
             return;
         }
         currentCard.ResetCardTransform();

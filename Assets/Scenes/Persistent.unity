@@ -384,9 +384,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 188365294}
+  - component: {fileID: 188365295}
   m_Layer: 7
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -407,6 +408,20 @@ Transform:
   - {fileID: 117963149}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &188365295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 188365293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5785e75c5f57e234a82fad05f081c1e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHP: 100
+  hp: {fileID: 11400000, guid: cd0655f462dc2904ab3a95a54f05dcab, type: 2}
 --- !u!1 &288618262
 GameObject:
   m_ObjectHideFlags: 0
